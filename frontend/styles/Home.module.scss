@@ -1,0 +1,23 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: flex ;
+  flex-direction: column;
+
+  input , button{
+    margin-bottom: 0.825rem;
+    width: 20rem;
+    height: 3rem;
+    padding-left: 8px;
+  }
+
+  ::placeholder{
+    color: rgb(158, 158, 158);
+  }
+}

@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import { FormEvent, useContext, useState } from 'react'
@@ -10,9 +10,9 @@ const Home: NextPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const { signIn, isAuthenticated} = useContext(AuthContext)
+  const { signIn, isAuthenticated } = useContext(AuthContext)
 
-  async function handleSubmit(e : FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault()
     const data = {
       email,
@@ -39,3 +39,11 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  console.log(ctx.req.cookies)
+  return {
+    props: {}
+  }
+}

@@ -1,9 +1,11 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { parseCookies } from 'nookies'
 import { FormEvent, useContext, useState } from 'react'
 import { AuthContext } from '../contexts/AuthContext'
 import styles from '../styles/Home.module.scss'
+import { withSSRGuest } from '../utils/withSSRGuest'
 
 const Home: NextPage = () => {
 
@@ -41,9 +43,8 @@ const Home: NextPage = () => {
 export default Home
 
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  console.log(ctx.req.cookies)
+export const getServerSideProps = withSSRGuest(async (ctx) => {
   return {
     props: {}
   }
-}
+})

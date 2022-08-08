@@ -10,8 +10,14 @@ a {
   color: inherit;
   text-decoration: none;
 }
-button{
+
+button {
   cursor: pointer;
+  font-size: 1.5rem;
+  width: 10rem;
+  height: 3rem;
+  padding-left: 8px;
+
 }
 
 * {
@@ -22,6 +28,7 @@ button{
   html {
     color-scheme: dark;
   }
+
   body {
     color: white;
     background: black;

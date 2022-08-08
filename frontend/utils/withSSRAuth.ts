@@ -16,7 +16,7 @@ export function withSSRAuth<P>(fn: GetServerSideProps<P>) {
         }
 
         try {
-            return fn(ctx)
+            return await fn(ctx)
         } catch (err) {
             if (err instanceof AuthTokenError) {
                 destroyCookie(ctx, 'nextauth.token')
